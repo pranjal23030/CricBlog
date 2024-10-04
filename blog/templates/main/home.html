@@ -8,9 +8,9 @@
   <body>
     {% include '../components/_navbar.html' %}
 
-    <div class="flex flex-wrap space-x-8">
+    <div class="flex flex-wrap space-x-8 p-8">
       {% for blog in blogs %}
-      <div class="max-w-sm rounded overflow-hidden shadow-lg">
+      <div class="max-w-sm rounded overflow-hidden shadow-lg m-4">
         <img
           class="w-full"
           src="{{blog.image.url}}"
