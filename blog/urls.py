@@ -9,7 +9,7 @@ urlpatterns = [
     path("login/",login, name ="login"),
     path("create/",create_blog),
     path("<int:blog_id>",single_blog, name="blog_detail"),
-    path("edit/",edit_blog),
+    path("<int:blog_id>/edit/", edit_blog, name="edit_blog"),
     path("<int:blog_id>/delete",delete_blog,name="delete_blog")
 ]
 
