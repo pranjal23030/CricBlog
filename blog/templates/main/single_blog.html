@@ -45,15 +45,16 @@
                 <p class="text-base leading-8 my-5">
                     {{blog.description}}
                 </p>
+                
+                <div class= "flex justify-between">
+                    <form action="{% url 'delete_blog' blog.id %}">
+                        <button class='bg-red-400 p-2 rounded-lg'>Delete Blog</button>
+                    </form>
 
-                <form action="{% url 'delete_blog' blog.id %}">
-                    <button class='bg-red-400 p-2'>Delete me </button>
-                </form>
-
-                <form action="{% url 'edit_blog' blog.id %}">
-                    <button class='bg-yellow-400 p-2'>Edit Blog</button>
-                </form>
-
+                    <form action="{% url 'edit_blog' blog.id %}">
+                        <button class='bg-yellow-400 p-2 rounded-lg'>Edit Blog</button>
+                    </form>
+                </div>
             </div>
 
         </div>
