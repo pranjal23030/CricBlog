@@ -1,42 +1,45 @@
 <html>
 <head>
-<title>Home</title>
-{% load static %}
-<link href="{% static 'src/styles.css' %}" rel="stylesheet" />
-
+  <title>Register</title>
+  {% load static %}
+  <link href="{% static 'src/styles.css' %}" rel="stylesheet" />
 </head>
+<body class="bg-black min-h-screen flex justify-center items-center">
 
-<body>
+  <div class="max-w-6xl mx-auto flex bg-black rounded-lg shadow-lg">
+    <!-- Cricket Image Section -->
+    <div class="w-1/2 bg-gray-900 rounded-l-lg">
+      <img src="https://thumbs.dreamstime.com/b/illustration-batsman-playing-cricket-action-abstract-background-high-quality-photo-323733394.jpg" alt="Cricket Image"
+        class="h-full object-cover rounded-l-lg">
+    </div>
 
-    <section class="flex flex-col items-center pt-6">
-        <div
-          class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-            <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">Create an
-              account
-            </h1>
-            <form action="/blog/register/" class="space-y-4 md:space-y-6" method="POST">
-              {% csrf_token %}
-              <div>
-                <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
-                <input type="email" name="email" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Emelia Erickson" required="">
-              </div>
-              <div>
-                <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
-                <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="emelia_erickson24" required="">
-              </div>
-              <div>
-                <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
-                <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-              </div>
-              <button type="submit" class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create an account</button>
-              <p class="text-sm font-light text-gray-500 dark:text-gray-400">Already have an account? <a
-                  class="font-medium text-blue-600 hover:underline dark:text-blue-500" href="/blog/login">Sign in here</a>
-              </p>
-            </form>
-          </div>
+    <!-- Register Form Section -->
+    <div class="w-1/2 p-8 bg-gray-800 rounded-r-lg">
+      <h1 class="text-3xl font-bold text-white mb-6 text-center">Create an account</h1>
+      <form action="/blog/register/" method="POST" class="space-y-6">
+        {% csrf_token %}
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-400">Your email</label>
+          <input type="email" name="email" id="email" placeholder="Enter your email"
+            class="block w-full p-3 mt-1 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500">
         </div>
-      </section>
-      
+        <div>
+          <label for="username" class="block text-sm font-medium text-gray-400">Username</label>
+          <input type="text" name="username" id="username" placeholder="Enter your username"
+            class="block w-full p-3 mt-1 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500">
+        </div>
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-400">Password</label>
+          <input type="password" name="password" id="password" placeholder="••••••••"
+            class="block w-full p-3 mt-1 rounded-lg bg-gray-700 text-white border border-gray-600 focus:ring-blue-500 focus:border-blue-500">
+        </div>
+        <button type="submit" class="w-full py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-white font-semibold">Create an account</button>
+        <p class="text-sm text-gray-400 mt-4">Already have an account? 
+          <a href="/blog/login" class="text-blue-400 hover:underline">Sign in here</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
 </body>
 </html>
