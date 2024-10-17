@@ -8,19 +8,15 @@
   <body class="bg-gray-50">
     {% include '../components/_navbar.html' %}
 
-    <div class="flex flex-wrap space-x-8 p-8">
+    <div class="flex flex-wrap justify-center p-8 gap-8">
       {% for blog in blogs %}
-      <div class="max-w-sm rounded overflow-hidden shadow-lg m-4 transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-        <img
-          class="w-full"
-          src="{{blog.image.url}}"
-          alt="Blog image"
-        />
+      <div class="max-w-sm w-full rounded overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
+        <div class="relative h-48">
+          <img class="absolute inset-0 w-full h-full object-cover" src="{{blog.image.url}}" alt="Blog image" />
+        </div>
         <div class="px-6 py-4">
           <div class="font-bold text-xl mb-2">{{blog.title}}</div>
-          <p class="text-gray-700 text-base">
-            {{blog.subtitle}}
-          </p>
+          <p class="text-gray-700 text-base">{{blog.subtitle}}</p>
           <div class="mt-4">
             <a href="/blog/{{blog.id}}">
               <button class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition duration-200">
@@ -32,6 +28,5 @@
       </div>
       {% endfor %}
     </div>
-
   </body>
 </html>
