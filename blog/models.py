@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class Blogs(models.Model):
-    title = models.CharField(max_length=25)
+    title = models.CharField(max_length=255)
     subtitle = models.CharField(max_length=255,blank=False, null=False)
     description = models.TextField()
     image = models.ImageField(upload_to='images', blank=True, null=True)
