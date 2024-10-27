@@ -27,3 +27,9 @@ def login(request):
         else:
             return redirect("login")
     return render(request,'auth/login.html')
+
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def profile(request):
+    return render(request, 'auth/profile.html', {'user': request.user})

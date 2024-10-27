@@ -1,7 +1,7 @@
 from django.urls import path
 from django.contrib.auth import logout
 from django.shortcuts import redirect
-from .views.auth_view import register, login
+from .views.auth_view import register, login, profile
 from .views.main_view import home,create_blog, single_blog, edit_blog, delete_blog
 
 def logout_view(request):
@@ -11,6 +11,7 @@ def logout_view(request):
 urlpatterns = [
     path("",home, name="home"),
     path("register/",register, name="register"),
+    path("profile/",profile, name ="login"),
     path("login/",login, name ="login"),
     path("create/",create_blog),
     path("<int:blog_id>",single_blog, name="blog_detail"),

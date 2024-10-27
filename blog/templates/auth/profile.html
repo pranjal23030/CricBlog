@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>User Profile</title>
+  {% load static %}
+  <link href="{% static 'src/styles.css' %}" rel="stylesheet" />
+</head>
+
+<body class="bg-gray-50">
+  {% include '../components/_navbar.html' %}
+
+  <!-- Profile Card -->
+  <div class="max-w-lg mx-auto mt-10 p-8 bg-white rounded-lg shadow-lg">
+    
+    <!-- Profile Image -->
+    <div class="flex justify-center mb-4">
+      <img src="https://creazilla-store.fra1.digitaloceanspaces.com/icons/3257916/gender-neutral-user-icon-md.png" alt="Profile Image" class="w-32 h-32 rounded-full shadow-md border-2 border-gray-300"/>
+    </div>
+
+    <h2 class="text-3xl font-bold text-gray-900 text-center mb-6">User Profile</h2>
+    
+    <!-- User Information -->
+    <div class="text-center space-y-4 mb-6">
+      <p class="text-gray-700 text-lg"><strong>Username:</strong> {{ user.username }}</p>
+      <p class="text-gray-700 text-lg"><strong>Email:</strong> {{ user.email }}</p>
+      <p class="text-gray-700 text-lg"><strong>Member since:</strong> {{ user.date_joined|date:"F d, Y" }}</p>
+    </div>
+
+    <form action="{% url 'logout' %}" method="POST" onsubmit="return confirmLogout()">
+      {% csrf_token %}
+      <button type="submit" class="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-700 transition duration-200">
+        Logout
+      </button>
+    </form>
+  </div>
+
+  <script>
+    function confirmLogout() {
+      return confirm("Are you sure you want to log out?");
+    }
+  </script>
+</body>
+</html>
