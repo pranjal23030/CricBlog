@@ -45,14 +45,18 @@
 
         <!-- Edit and Delete buttons -->
         <div class="flex justify-between mt-8">
-          <form action="{% url 'delete_blog' blog.id %}" method="POST" onsubmit="return confirmDelete()">
-            {% csrf_token %}
-            <button class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700">Delete Blog</button>
-          </form>
-
-          <form action="{% url 'edit_blog' blog.id %}">
-            <button class="bg-yellow-400 px-4 py-2 rounded-lg hover:bg-yellow-500">Edit Blog</button>
-          </form>
+          {% if request.user.is_authenticated and request.user == blog.author %}
+            <form action="{% url 'delete_blog' blog.id %}" method="POST" onsubmit="return confirmDelete()">
+              {% csrf_token %}
+              <button class="bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-700">Delete Blog</button>
+            </form>
+          {% endif %}
+        
+          {% if request.user.is_authenticated and request.user == blog.author %}
+            <form action="{% url 'edit_blog' blog.id %}">
+              <button class="bg-yellow-400 px-4 py-2 rounded-lg hover:bg-yellow-500">Edit Blog</button>
+            </form>
+          {% endif %}
         </div>
       </div>
     </div>
