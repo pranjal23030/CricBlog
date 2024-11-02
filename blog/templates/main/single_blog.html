@@ -32,10 +32,10 @@
         <!-- Author aligned to the right -->
         <div class="mt-6 text-right">
           <p class="text-gray-700 text-sm">Written By:
-            <a href="#" class="text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">
+            <a href="{% url 'author_blogs' blog.author.id %}" class="text-indigo-600 font-medium hover:text-gray-900 transition duration-500 ease-in-out">
               {{blog.author}}
             </a>
-          </p>
+          </p>          
         </div>
 
         <!-- Blog Description -->
