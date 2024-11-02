@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from ..models import Blogs
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth.models import User
 
 def home(request):
     blogs = Blogs.objects.all()
@@ -13,6 +13,14 @@ def single_blog(request, blog_id):
     blog = get_object_or_404(Blogs,pk=blog_id);
     return render(request,"main/single_blog.html", {
         "blog" : blog
+    })
+
+def author_blogs(request, author_id):
+    author = get_object_or_404(User, id=author_id)
+    blogs = Blogs.objects.filter(author=author)
+    return render(request, "main/author_blogs.html", {
+        "author": author,
+        "blogs": blogs
     })
 
 @login_required
