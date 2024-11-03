@@ -995,16 +995,16 @@ video {
   font-weight: 600;
 }
 
+.leading-6 {
+  line-height: 1.5rem;
+}
+
 .leading-8 {
   line-height: 2rem;
 }
 
 .leading-normal {
   line-height: 1.5;
-}
-
-.leading-6 {
-  line-height: 1.5rem;
 }
 
 .tracking-wider {
@@ -1216,11 +1216,5 @@ video {
 
   .md\:p-16 {
     padding: 4rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .lg\:grid-cols-3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from ..models import Blogs
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+import os
 
 def home(request):
     blogs = Blogs.objects.all()
@@ -61,11 +62,17 @@ def create_blog(request):
 
 
 @login_required
-def delete_blog(request,blog_id):
-    blog = get_object_or_404(Blogs,pk=blog_id)
+def delete_blog(request, blog_id):
+    blog = get_object_or_404(Blogs, pk=blog_id)
+    
     if blog.author == request.user:
+        # Delete the image file from the media folder if it exists
+        if blog.image and os.path.isfile(blog.image.path):
+            os.remove(blog.image.path)
+        
+        # Delete the blog entry from the database
         blog.delete()
         return redirect("home")
     else:
-        return redirect('blog_detail',blog_id=blog.id)
+        return redirect('blog_detail', blog_id=blog.id)
 
